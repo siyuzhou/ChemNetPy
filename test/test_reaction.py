@@ -10,10 +10,10 @@ class TestReaction(unittest.TestCase):
         r2 = chemnet.Species('01', 2, 0.3, 0.2, 0)
         p1 = chemnet.Species('1001', 1, 0.5, 0.15, 0)
 
-        self.reaction = chemnet.Reaction([r1, r2], [p1], 1, 1, 'reaction1')
+        self.reaction = chemnet.Reaction([r1, r2], [p1], 1, 1)
 
     def test_reaction_name(self):
-        self.assertEqual(self.reaction.name, 'reaction1')
+        self.assertIn(self.reaction.formula, '01+10<->1001')
 
     def test_reaction(self):
         change = self.reaction.react(0.1)
